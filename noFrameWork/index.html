@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>EUR/RUR</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<?php include 'bootstrap_4.html';// css - framework ?>
+	</head>
+	
+<body>
+	<div class="container-fluid d-flex align-items-start flex-column p-0 bg-dark" style="height: 100vh;">
+		<div class="container-fluid w-100 mb-auto">
+			<div class="row pt-5">
+				<div class="pt-5 col-md-4 ">
+				</div>
+				<div class="pt-5 col-md-4 ">
+					<h1><span id="EUR" class="text-danger">Exchange Rates</span></h1>
+				</div>
+				<div class="pt-5 col-md-4 ">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script>
+// Get Currency Exchange Rates from external source (xml, json):
+var i = 0, count = ["EUR ", "ЕВРО "];
+
+var timerId = setInterval(function() {
+var dataString = count[i++];
+var len = count.length;
+if( i > len - 1 ) { i = 0;}
+	$.ajax({
+				type: "POST",
+				url: "getExRate.php",
+				data: {dataString: dataString}, //{myArray : count[i++]},
+				cache: false,
+				success:function(result){
+							$('#EUR').html(result)
+						}
+			})
+}, 10000);
+// Stop Currency Exchange Rates updating
+/*
+setTimeout(function() {
+	clearInterval(timerId);
+}, 16000);
+*/
+</script>
