@@ -17,7 +17,7 @@ $url[] = ["38/attributes/RATE", "http://localhost/MaxiBooking/sourceEUR/eurofxre
 $url[] = ["Valute/EUR/Value", "https://www.cbr-xml-daily.ru/daily_json.js"];
 $url[] = ["Valute/EUR/Value", "http://localhost/MaxiBooking/sourceEUR/daily_json.js"];
 $url[] = ["Valute/EUR/Value", "http://localhost/MaxiBooking/sourceEUR/daily_json1.js"];			// doesn't exists
-shuffle($url);
+// shuffle($url);
 
 // Create GetExchangeRate class instance and receive data from url:
  $rate = new GetExchangeRate( $url ); 
